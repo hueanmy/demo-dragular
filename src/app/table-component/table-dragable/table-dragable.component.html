@@ -1,0 +1,24 @@
+<button (click)="clicked($event)" type="button" pButton label="Click here!"></button> &nbsp;
+<button pButton label="Expand All" (click)="onExpand()"  type="button"></button>&nbsp;
+<button pButton label="Collapse All" (click)="onColapse()" type="button"></button>&nbsp;
+<button pButton (click)="checkAll()" label="Select All" type="button"></button>
+<button pButton (click)="onDelete()" label="Delete" type="button"></button>
+<div class='parent'>
+  <div class='wrapper'>
+    <div class='container' dragula="SPILL">
+      <div  class="ui-g ui-g-offset-3" *ngFor="let row of boxData">
+        <span class="ui-g-1">{{row.id}}</span>
+        <p-checkbox binary="true" [(ngModel)]="row.checkbox" class="ui-g-1"></p-checkbox>
+        <span class="ui-g-1"></span>
+        <label class="ui-g-6">
+          <input value="Field name {{row.id}}" type="text">
+        </label>
+        <p-accordion [multiple]="true" expandIcon="pi pi-plus" collapseIcon="pi pi-minus" class="ui-g-1">
+          <p-accordionTab [selected]="row.expanded">
+            Content
+          </p-accordionTab>
+        </p-accordion>
+      </div>
+    </div>
+  </div>
+</div>
